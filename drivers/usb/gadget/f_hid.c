@@ -611,6 +611,12 @@ static void hidg_unbind(struct usb_configuration *c, struct usb_function *f)
 {
 	struct f_hidg *hidg = func_to_hidg(f);
 
+	pr_info("%s: destroying device %p\n", __func__, hidg);
+	/* This does not cover all race conditions, only most common one */
+	mutex_lock(&hidg->lock);
+	hacky_device_list_remove(hidg);
+	mutex_unlock(&hidg->lock);
+
 	device_destroy(hidg_class, MKDEV(major, hidg->minor));
 	cdev_del(&hidg->cdev);
 
