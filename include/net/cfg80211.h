@@ -104,6 +104,13 @@ enum ieee80211_channel_flags {
 	IEEE80211_CHAN_RADAR		= 1<<3,
 	IEEE80211_CHAN_NO_HT40PLUS	= 1<<4,
 	IEEE80211_CHAN_NO_HT40MINUS	= 1<<5,
+        IEEE80211_CHAN_NO_OFDM          = 1<<6,
+        IEEE80211_CHAN_NO_80MHZ         = 1<<7,
+        IEEE80211_CHAN_NO_160MHZ        = 1<<8,
+        IEEE80211_CHAN_INDOOR_ONLY      = 1<<9,
+        IEEE80211_CHAN_IR_CONCURRENT    = 1<<10,
+        IEEE80211_CHAN_NO_20MHZ         = 1<<11,
+        IEEE80211_CHAN_NO_10MHZ         = 1<<12,
 };
 
 #define IEEE80211_CHAN_NO_HT40 \
